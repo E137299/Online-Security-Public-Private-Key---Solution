@@ -26,8 +26,6 @@ def gcd(p,q):
 def is_coprime(x, y):
     return gcd(x, y) == 1
 
-
-
 def calculate_N(p, q):
 	return p*q
 
@@ -50,8 +48,6 @@ def pick_e_d(p, q):
 		d += 1
 	return N, e, d
 		
-
-
 def encrypt(N, e, letter):
 	v = ord(letter)
 	# print("Letter:",letter,"V:",v)
@@ -67,7 +63,6 @@ def encrypt_message(N, e, message):
 
 def decrypt(N, d, enc):
 	idx = ((enc**d)%N)
-	
 	return chr(idx)
 
 
@@ -79,17 +74,25 @@ def decrypt_message(N, d, string):
 
 
 print("\nPrime Numbers Less Than a 1,000:\n",primes_less_than(1000),"\n")
-N, e, d = pick_e_d(83,89)
+N, e, d = pick_e_d(19,23)
 print("N:",N)
 print("e:",e)
 print("d:",d)
 
-
-enc_Msg = encrypt_message(N,e, "aabbccddeeffgg")
+# N = 437
+# e = 5
+# d = 317
+enc_Msg = encrypt_message(N,e, "Hello World!")
 print(enc_Msg)
 
 print(decrypt_message(N, d, enc_Msg))
 
 
 
+N = 943
+e = 53
+d = 949
+enc_Msg = encrypt_message(N,e, "Vortex Victor - 'Twisting reality, shaping destiny.'")
+print("Encrypted Message:",enc_Msg)
+print("Decrypted Message:",decrypt_message(N, d, enc_Msg))
 
